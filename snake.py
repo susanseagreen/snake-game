@@ -9,12 +9,11 @@ RIGHT = 0
 
 
 class Snake:
-
     def __init__(self):
         self.segments = []
         self.create_snake()
         self.head = self.segments[0]
-        
+
     def create_snake(self):
         for position in STARTING_POSITION:
             self.add_segment(position)
@@ -45,13 +44,13 @@ class Snake:
         # detect if going past wall and show up at other side
         if self.head.xcor() > 295:
             self.head.goto(-295, self.head.ycor())
-    
+
         if self.head.xcor() < -295:
             self.head.goto(295, self.head.ycor())
-    
+
         if self.head.ycor() > 295:
             self.head.goto(self.head.xcor(), -295)
-    
+
         if self.head.ycor() < -295:
             self.head.goto(self.head.xcor(), 295)
 
@@ -70,4 +69,3 @@ class Snake:
     def right(self):
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
-
