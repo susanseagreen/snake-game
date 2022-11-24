@@ -15,6 +15,7 @@ snake = Snake()
 food = Food()
 scoreboard = Scoreboard()
 
+# listen for key press
 screen.listen()
 screen.onkey(snake.up, "w")
 screen.onkey(snake.down, "s")
