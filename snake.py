@@ -26,6 +26,13 @@ class Snake:
         new_segments.goto(position)
         self.segments.append(new_segments)
 
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1000, 1000)
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
+
     def extend(self):
         self.add_segment(self.segments[-1].position())
 
@@ -36,17 +43,17 @@ class Snake:
         self.head.forward(MOVE_DISTANCE)
 
         # detect if going past wall and show up at other side
-        if self.head.xcor() > 300:
-            self.head.goto(-300, self.head.ycor())
+        if self.head.xcor() > 295:
+            self.head.goto(-295, self.head.ycor())
     
-        if self.head.xcor() < -300:
-            self.head.goto(300, self.head.ycor())
+        if self.head.xcor() < -295:
+            self.head.goto(295, self.head.ycor())
     
-        if self.head.ycor() > 300:
-            self.head.goto(self.head.xcor(), -300)
+        if self.head.ycor() > 295:
+            self.head.goto(self.head.xcor(), -295)
     
-        if self.head.ycor() < -300:
-            self.head.goto(self.head.xcor(), 300)
+        if self.head.ycor() < -295:
+            self.head.goto(self.head.xcor(), 295)
 
     def up(self):
         if self.head.heading() != DOWN:
@@ -63,3 +70,4 @@ class Snake:
     def right(self):
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
+
