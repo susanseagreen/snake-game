@@ -21,4 +21,4 @@ class Food(Turtle):
 
 @staticmethod
 def get_random():
-    return random.randrange(-260, 260, 40)
+    return random.randrange(-280, 280, 40)
